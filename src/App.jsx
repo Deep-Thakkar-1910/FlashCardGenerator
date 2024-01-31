@@ -1,7 +1,15 @@
+import { Routes, Route } from "react-router-dom";
+import Navbar from "./components/Navbar/Navbar";
+
 const App = () => {
   return (
     <div className="App w-full min-h-screen bg-[#f5f2ed]">
-      <h1 className="">Hello World</h1>
+      <Navbar />
+      <Routes>
+        <Route path="/createcard" />
+        <Route path="/myflashcards" />
+        <Route path="/:details" />
+      </Routes>
     </div>
   );
 };
