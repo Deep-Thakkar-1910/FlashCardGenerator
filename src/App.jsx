@@ -7,7 +7,6 @@ const App = () => {
       <Navbar />
       <main className="grid place-items-center"></main>
       <Routes>
-        <Route path="/createcard" />
         <Route path="/myflashcards" />
         <Route path="/:details" />
       </Routes>

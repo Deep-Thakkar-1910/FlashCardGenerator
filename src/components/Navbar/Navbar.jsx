@@ -1,7 +1,18 @@
 import { NavLink, useLocation } from "react-router-dom";
 const Navbar = () => {
-  const location = useLocation();
-  const classes = (where) => {};
+  const { pathname } = useLocation();
+  let location = pathname?.split("/")[1];
+  const classes = (here) => {
+    let classname = "";
+    if (!location) location = "home";
+    if (here === location) {
+      classname += "text-[#ab1f1f]";
+    } else {
+      classname += "text-gray-600";
+    }
+
+    return classname;
+  };
   return (
     <>
       <div className=" flex bg-white p-2 justify-start items-center shadow-md header1">
@@ -16,18 +27,13 @@ const Navbar = () => {
         </h1>
         <ul className=" list-none flex gap-4 md:gap-10">
           <li>
-            <NavLink
-              className="text-gray-600  font-semibold"
-              to={"/createcard"}
-              activeClassName="active-link"
-            >
+            <NavLink className={`${classes("home")} font-semibold`} to={"/"}>
               Create New
             </NavLink>
           </li>
           <li>
             <NavLink
-              className="text-gray-600 font-semibold"
-              activeClassName="active-link"
+              className={`${classes("myflashcard")} font-semibold`}
               to={"/myflashcard"}
             >
               My Flashcard
