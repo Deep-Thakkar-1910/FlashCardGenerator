@@ -8,14 +8,14 @@ const TermCreation = ({ values }) => {
       <FieldArray
         name="TermsData"
         render={(fieldArrayProps) => (
-          <ul className="bg-white md:p-10 rounded-md sm:p-5 p-5 shadow-md flex flex-col gap-8">
+          <ul className="bg-white md:p-10 rounded-md sm:p-5 p-5 shadow-md flex flex-col gap-8 ">
             {/* Using map to multiple Ui forms for the given add more option */}
             {values.TermsData.map((TermsData, index) => (
               <li
                 key={index}
-                className="flex gap-5 items-start md:flex-row flex-col sm:flex-col sm:w-full"
+                className="flex gap-5 items-center md:flex-row flex-col sm:flex-col sm:w-full"
               >
-                <span className="px-4 py-2 text-xl font-bold rounded-full bg-red-200">
+                <span className="px-4 py-2 text-xl font-bold rounded-full bg-red-200 translate-y-[30%]">
                   {index + 1}
                 </span>
                 <div className="flex items-end flex-wrap gap-5 md:flex-row sm:flex-col flex-col w-full">
