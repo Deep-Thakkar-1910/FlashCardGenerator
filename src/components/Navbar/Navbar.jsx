@@ -1,46 +1,50 @@
 import { NavLink, useLocation } from "react-router-dom";
 const Navbar = () => {
-  const { pathname } = useLocation();
+  const { pathname } = useLocation(); // function to get the current path and update the active navbar link color accorindgly
   let location = pathname?.split("/")[1];
   const classes = (here) => {
     let classname = "";
     if (!location) location = "home";
     if (here === location) {
-      classname += "text-[#ab1f1f]";
+      classname +=
+        "py-2 text-[#cb1313] border-4 z-1 rounded relative border-b-[#cb1313] border-[transparent] ";
     } else {
-      classname += "text-gray-600";
+      classname += "py-2 text-gray-600 border-4 border-transparent";
     }
 
     return classname;
   };
   return (
     <>
-      <div className=" flex bg-white p-2 justify-start items-center shadow-md header1">
-        <div className=" bg-[#ab1f1f] p-1 text-white font-bold text-2xl">
+      <div className=" flex items-center justify-start bg-white px-10 py-3 shadow-md transition-all ease-in-out">
+        <div className="rounded-sm bg-[#cb1313]  p-1 text-2xl font-bold text-white">
           AL
         </div>
         <div className="text-2xl">maBetter</div>
       </div>
       <div className="nav px-5 md:px-20 lg:px-32">
-        <h1 className="mx-auto mt-10 mb-7 text-2xl font-bold">
+        <h1 className="mb-7 mt-10 text-2xl font-bold xl:text-3xl">
           Create Flashcard
         </h1>
-        <ul className=" list-none flex gap-4 md:gap-10">
+        <ul className=" flex list-none gap-4 md:gap-10">
           <li>
-            <NavLink className={`${classes("home")} font-semibold`} to={"/"}>
+            <NavLink
+              className={`${classes("home")} font-semibold xl:text-xl`}
+              to={"/"}
+            >
               Create New
             </NavLink>
           </li>
           <li>
             <NavLink
-              className={`${classes("myflashcard")} font-semibold`}
+              className={`${classes("myflashcard")} font-semibold xl:text-xl`}
               to={"/myflashcard"}
             >
               My Flashcard
             </NavLink>
           </li>
         </ul>
-        <div className=" mt-2 w-full h-[2px] bg-gray-400 opacity-50" />
+        <div className="relative z-0 mt-2 h-[2px] w-full bg-gray-400 opacity-50" />
       </div>
     </>
   );
