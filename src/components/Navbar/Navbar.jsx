@@ -15,15 +15,15 @@ const Navbar = () => {
     return classname;
   };
   return (
-    <>
-      <div className=" flex items-center justify-start bg-white px-10 py-3 shadow-md transition-all ease-in-out">
+    <div className="fixed top-0 w-full">
+      <div className=" flex items-center justify-start bg-white px-10 py-3 shadow-md">
         <div className="rounded-sm bg-[#cb1313]  p-1 text-2xl font-bold text-white">
           AL
         </div>
         <div className="text-2xl">maBetter</div>
       </div>
-      <div className="nav px-5 md:px-20 lg:px-32">
-        <h1 className="mb-7 mt-10 text-2xl font-bold xl:text-3xl">
+      <div className="bg-[#f5f2ed] px-5 py-10 md:px-20 lg:px-32">
+        <h1 className="mb-7 text-2xl font-bold xl:text-3xl">
           Create Flashcard
         </h1>
         <ul className=" flex list-none gap-4 md:gap-10">
@@ -46,7 +46,7 @@ const Navbar = () => {
         </ul>
         <div className="relative z-0 mt-2 h-[2px] w-full bg-gray-400 opacity-50" />
       </div>
-    </>
+    </div>
   );
 };
 
