@@ -1,6 +1,7 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import TermCreation from "./TermCreation";
+import Button from "./Button";
 
 //Data initialization for term
 const initialValues = {
@@ -28,14 +29,23 @@ function FlashcardDesign() {
       validationSchema={validationSchema}
       onSubmit={onSubmit}
     >
-      {({ values }) => (
+      {({ values, setFieldValue }) => (
         <Form className="">
           <section className="mb-10 flex flex-col gap-10">
             {/* Here i am using Termcreation component where my actualy code exist */}
-            <TermCreation values={values} />
+            <TermCreation values={values} setFieldValue={setFieldValue} />
           </section>
           {/* this is submit button to submit the entire term form data  */}
-          <button type="submit">submit</button>
+          <div className="mx-auto text-center">
+            {/* button for submiting the flashcard */}
+            {/* <Button
+              data-testid="submit-form"
+              // disabled={""}
+              type="submit"
+              btnclass={`font-semibold rounded-md text-white text-xl px-14 py-4 `}
+              // text={""}
+            /> */}
+          </div>
         </Form>
       )}
     </Formik>
