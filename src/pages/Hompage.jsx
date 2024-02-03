@@ -1,8 +1,9 @@
 const Hompage = () => {
   return (
-    <>
-      <h1 className="text-2xl font-bold">Homepage</h1>
-    </>
+    <div className="px-5 md:px-10 lg:px-32">
+      <>
+      </>
+    </div>
   );
 };
 
