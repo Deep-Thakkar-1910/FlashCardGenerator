@@ -32,11 +32,11 @@ const TermCreation = ({ values, setFieldValue }) => {
                   />
 
                   <InputFieldCreation
-                    name={`TermsData.${index}.defination`}
-                    htmlFor={`defination${index}`}
+                    name={`TermsData.${index}.definition`}
+                    htmlFor={`definition${index}`}
                     label={"Enter Definition"}
                     id={`defination${index}`}
-                    placeholder={"Enter the defination"}
+                    placeholder={"Enter the definition"}
                   />
                   {!item.image && (
                     <div>
@@ -151,7 +151,7 @@ const TermCreation = ({ values, setFieldValue }) => {
             <li className="text-center md:text-left">
               <Button
                 type="button"
-                fn={() => fieldArrayProps.push("")}
+                fn={() => fieldArrayProps.push({term:"",definition:""})}
                 btnclass={"font-semibold text-blue-700 mt-5"}
                 text={"+ Add more"}
               />
