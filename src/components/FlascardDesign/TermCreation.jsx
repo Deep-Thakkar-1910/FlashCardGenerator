@@ -151,7 +151,7 @@ const TermCreation = ({ values, setFieldValue }) => {
             <li className="text-center md:text-left">
               <Button
                 type="button"
-                fn={() => fieldArrayProps.push("")}
+                fn={() => fieldArrayProps.push({ term: "", defination: "" })}
                 btnclass={"font-semibold text-blue-700 mt-5"}
                 text={"+ Add more"}
               />
