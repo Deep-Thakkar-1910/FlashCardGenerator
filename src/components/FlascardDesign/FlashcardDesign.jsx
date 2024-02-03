@@ -1,7 +1,7 @@
 import { Formik, Form } from "formik";
 import * as Yup from "yup";
 import TermCreation from "./TermCreation";
-import Button from "./Button";
+// import Button from "./Button";
 
 //Data initialization for term
 const initialValues = {
