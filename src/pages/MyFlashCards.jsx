@@ -1,10 +1,17 @@
+import FlashcardComponent from "../components/FlashcardComponent/FlashcardComponent";
+
 const MyFlashCards = () => {
   return (
-    <div className="px-5 md:px-10 lg:px-32 ">
+    <div className="grid grid-cols-1 px-5 md:px-10 lg:px-32 ">
       <>
-      <h1 className="font-black text-2xl">Hello</h1>
+        <FlashcardComponent />
+        <FlashcardComponent />
+        <FlashcardComponent />
+        <FlashcardComponent />
+        <FlashcardComponent />
+        <FlashcardComponent />
       </>
-      </div>
+    </div>
   );
 };
 
