@@ -8,7 +8,7 @@ import * as Yup from "yup";
 //Data initialization for term
 const initialValues = {
   GroupData: { group: "", groupdesc: "", grpimage: null },
-  TermsData: [{ term: "", defination: "", image: null }],
+  TermsData: [{ term: "", definition: "", image: null }],
 };
 
 //Data submission for term
@@ -31,7 +31,7 @@ const validationSchema = Yup.object().shape({
         .max(200, "You have reached the max len")
         .required("Required"),
 
-      defination: Yup.string()
+      definition: Yup.string()
         .min(100, "Minimum char len is 100")
         .max(2000, "You have reached the max len")
         .required("Required"),
