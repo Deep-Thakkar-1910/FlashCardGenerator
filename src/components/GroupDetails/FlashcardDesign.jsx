@@ -2,18 +2,24 @@ import { Formik, Form } from "formik";
 import TermCreation from "./TermCreation";
 import GroupCreation from "./GroupCreation";
 import Button from "./Button";
-// import { validationschema } from "./validation";
 import * as Yup from "yup";
+import shortid from "shortid";
+
+const allFlashCardData = localStorage.getItem("allFlashCardData") || [];
 
 //Data initialization for term
 const initialValues = {
-  GroupData: { group: "", groupdesc: "", grpimage: null },
+  GroupData: { group: "", groupdesc: "", grpimage: null,},
   TermsData: [{ term: "", definition: "", image: null }],
+  id:""
 };
 
 //Data submission for term
 const onSubmit = (values) => {
+  values.id = shortid.generate();
   console.log("Form data", values);
+  const finalValue = [...allFlashCardData,values];
+  localStorage.setItem("allFlashCardData", JSON.stringify(finalValue));
 };
 
 const validationSchema = Yup.object().shape({
