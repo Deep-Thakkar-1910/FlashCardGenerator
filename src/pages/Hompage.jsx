@@ -1,9 +1,9 @@
-import FlashcardDesign from '../components/FlascardDesign/FlashcardDesign';
+import GroupDetails from '../components/GroupDetails/FlashcardDesign';
 const Hompage = () => {
   return (
     <div className="px-5 md:px-10 lg:px-32">
       <>
-      <FlashcardDesign/>
+      <GroupDetails/>
       </>
     </div>
   );

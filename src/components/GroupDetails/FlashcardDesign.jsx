@@ -1,9 +1,9 @@
 import { Formik, Form } from "formik";
 import TermCreation from "./TermCreation";
 import GroupCreation from "./GroupCreation";
+import Button from "./Button";
 // import { validationschema } from "./validation";
 import * as Yup from "yup";
-// import Button from "./Button";
 
 //Data initialization for term
 const initialValues = {
@@ -39,7 +39,7 @@ const validationSchema = Yup.object().shape({
   ),
 });
 
-function FlashcardDesign() {
+function GroupDetails() {
   return (
     <Formik
       initialValues={initialValues}
@@ -61,10 +61,9 @@ function FlashcardDesign() {
               data-testid="submit-form"
               // disabled={""}
               type="submit"
-              btnclass={`font-semibold rounded-md text-white text-xl px-14 py-4 bg-red-200`}
-              // text={""}
-            /> */}
-            <button type="submit">submit</button>
+              btnclass={`font-semibold rounded-md text-white text-xl px-14 py-4 bg-red-600 mb-10`}
+              text={"Create"}
+            /> 
           </div>
         </Form>
       )}
@@ -72,4 +71,4 @@ function FlashcardDesign() {
   );
 }
 
-export default FlashcardDesign;
+export default GroupDetails;
