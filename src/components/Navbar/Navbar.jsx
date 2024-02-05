@@ -22,7 +22,7 @@ const Navbar = () => {
         </div>
         <div className="text-2xl">maBetter</div>
       </div>
-      <div className="bg-[#f5f2ed] px-5 py-10 md:px-20 lg:px-32">
+      <div className="bg-[#f5f2ed] px-5 pb-4 pt-10 md:px-20 lg:px-32">
         <h1 className="mb-7 text-2xl font-bold xl:text-3xl">
           Create Flashcard
         </h1>

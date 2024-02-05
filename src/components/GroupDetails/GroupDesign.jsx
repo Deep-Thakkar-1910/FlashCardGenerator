@@ -4,23 +4,17 @@ import GroupCreation from "./GroupCreation";
 import Button from "./Button";
 import * as Yup from "yup";
 import shortid from "shortid";
-
-const allFlashCardData = localStorage.getItem("allFlashCardData") || [];
-
+import { useDispatch } from "react-redux";
+import { updateFlashCards } from "../../Redux/Slices/AllFlashcards";
 //Data initialization for term
+
 const initialValues = {
-  GroupData: { group: "", groupdesc: "", grpimage: null,},
+  GroupData: { group: "", groupdesc: "", grpimage: null },
   TermsData: [{ term: "", definition: "", image: null }],
-  id:""
+  id: "",
 };
 
 //Data submission for term
-const onSubmit = (values) => {
-  values.id = shortid.generate();
-  console.log("Form data", values);
-  const finalValue = [...allFlashCardData,values];
-  localStorage.setItem("allFlashCardData", JSON.stringify(finalValue));
-};
 
 const validationSchema = Yup.object().shape({
   GroupData: Yup.object().shape({
@@ -41,11 +35,22 @@ const validationSchema = Yup.object().shape({
         .min(100, "Minimum char len is 100")
         .max(2000, "You have reached the max len")
         .required("Required"),
-    })
+    }),
   ),
 });
 
 function GroupDetails() {
+  const dispatch = useDispatch();
+  const onSubmit = (values, { resetForm }) => {
+    values.id = shortid.generate();
+    console.log("Form data", values);
+    const allFlashCardData =
+      JSON.parse(localStorage.getItem("allFlashCardData")) || [];
+    const finalValue = [...allFlashCardData, values];
+    localStorage.setItem("allFlashCardData", JSON.stringify(finalValue));
+    dispatch(updateFlashCards({ ...values }));
+    resetForm();
+  };
   return (
     <Formik
       initialValues={initialValues}
@@ -65,11 +70,10 @@ function GroupDetails() {
             {/* button for submiting the flashcard */}
             <Button
               data-testid="submit-form"
-              // disabled={""}
               type="submit"
               btnclass={`font-semibold rounded-md text-white text-xl px-14 py-4 bg-red-600 mb-10`}
               text={"Create"}
-            /> 
+            />
           </div>
         </Form>
       )}
