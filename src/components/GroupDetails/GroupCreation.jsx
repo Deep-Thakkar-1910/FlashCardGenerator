@@ -6,9 +6,9 @@ import Button from "./Button";
 
 const GroupCreation = ({ values, setFieldValue }) => {
   return (
-    <div className="bg-white shadow-md md:p-10 p-5 rounded-md sm:p-5">
+    <div className="rounded-md bg-white p-5 shadow-md sm:p-5 md:p-10">
       <div
-        className={`flex items-end gap-5 mb-5 sm:flex-row flex-col flex-wrap`}
+        className={`mb-5 flex flex-col flex-wrap items-end gap-14 sm:flex-row sm:gap-5`}
       >
         {/* Enter group input */}
         <InputFieldCreation
@@ -30,7 +30,7 @@ const GroupCreation = ({ values, setFieldValue }) => {
               <>
                 <label
                   htmlFor="grpimage"
-                  className="flex items-center gap-1 cursor-pointer"
+                  className="flex cursor-pointer items-center gap-1"
                 >
                   <AiFillFileImage className="text-blue-700" />
                   {values.GroupData.grpimage ? "Change" : "Upload"} Image
@@ -61,7 +61,7 @@ const GroupCreation = ({ values, setFieldValue }) => {
           <>
             <div className="flex items-center gap-5">
               <img
-                className="w-20 aspect-square rounded-md"
+                className="aspect-square w-20 rounded-md"
                 src={values.GroupData.grpimage}
                 alt="card_profile"
                 loading="lazy"
@@ -79,7 +79,7 @@ const GroupCreation = ({ values, setFieldValue }) => {
         )}
       </div>
       {/* Group description */}
-      <div className="flex flex-col gap-2 relative">
+      <div className="relative flex flex-col gap-2">
         <label htmlFor="groupdesc" className="font-semibold text-gray-500">
           Add Description
         </label>
@@ -89,8 +89,8 @@ const GroupCreation = ({ values, setFieldValue }) => {
           name={`GroupData.groupdesc`}
           id="groupdesc"
           maxLength="500"
-          placeholder="Write your description here ( max length is 500 words )"
-          className="p-2 text-lg border-2 rounded-md h-36 resize-none"
+          placeholder="Write your description here ( max length is 500 Characters )"
+          className="h-36 resize-none rounded-md border-2 p-2 text-lg"
         />
       </div>
     </div>

@@ -15,9 +15,9 @@ const App = () => {
   }, [allFlashCardData]);
 
   return (
-    <div className="App flex min-h-screen  w-full flex-col bg-[#f5f2ed] font-openSans">
+    <div className="App flex min-h-screen w-full  flex-col overflow-x-hidden bg-[#f5f2ed] font-openSans">
       <Navbar />
-      <main style={{ marginTop: "20rem" }} className="grid place-items-start">
+      <main style={{ marginTop: "15rem" }} className="grid place-items-start">
         <Routes>
           <Route path="/" element={<Hompage />} />
           <Route path="/myflashcard" element={<MyFlashCards />} />

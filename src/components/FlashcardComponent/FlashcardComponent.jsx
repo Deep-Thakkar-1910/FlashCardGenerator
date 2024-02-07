@@ -8,7 +8,7 @@ const FlashcardComponent = ({
   id,
 }) => {
   return (
-    <div className="relative z-0 mx-auto my-10 flex h-5/6 w-full min-w-64 flex-col justify-between rounded-md border border-gray-300 bg-white p-5 pt-8 shadow-sm sm:mx-0 sm:w-5/6 sm:min-w-96 lg:w-11/12">
+    <div className="relative  z-0 mx-auto my-10 flex h-5/6 w-full min-w-64 flex-col justify-between rounded-md border border-gray-300 bg-white p-5 pt-8 shadow-md sm:mx-0 sm:w-5/6 sm:min-w-96 lg:w-11/12">
       <img
         src={groupImage ?? "https://placehold.co/400"}
         alt=""
@@ -24,7 +24,7 @@ const FlashcardComponent = ({
       <p className="m-4 text-center font-semibold">{`${termsData.length} Cards`}</p>
 
       <Link to={`/${id}`}>
-        <button className="w-full place-self-center rounded-md bg-red-100 p-1 text-xl text-red-500 transition-all hover:bg-red-200 active:bg-red-300">
+        <button className=" w-full place-self-center rounded-md border-2 border-red-600 bg-transparent p-1 text-xl  font-bold text-red-500 transition-all  duration-300 ease-in-out  hover:bg-red-600 hover:text-white">
           View Cards
         </button>
       </Link>

@@ -5,17 +5,17 @@ import { ErrorMessage, Field } from "formik";
 
 const InputFieldCreation = ({ label, id, name, htmlFor, placeholder }) => {
   return (
-    <div className="flex flex-col gap-2 md:w-80 w-full">
+    <div className="flex w-full flex-col gap-2 md:w-80">
       <label htmlFor={htmlFor} className="font-semibold text-gray-500">
         {label}*
       </label>
-      <div className="flex flex-col gap-2 md:w-80 w-full relative">
+      <div className="relative flex w-full flex-col gap-2 md:w-80">
         <Field
           type="text"
           id={id}
           name={name}
           placeholder={placeholder}
-          className="p-2 text-lg border-2 rounded-md"
+          className="rounded-md border-2 p-2 text-lg"
           required
           autoComplete="false"
         />
@@ -23,7 +23,7 @@ const InputFieldCreation = ({ label, id, name, htmlFor, placeholder }) => {
           name={name}
           component="span"
           data-testid="error-msg"
-          className="absolute top-12 left-0 text-red-600"
+          className="absolute left-0 top-12 text-red-600"
         />
       </div>
     </div>

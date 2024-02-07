@@ -11,17 +11,17 @@ const TermCreation = ({ values, setFieldValue }) => {
       <FieldArray
         name="TermsData"
         render={(fieldArrayProps) => (
-          <ul className="bg-white md:p-10 rounded-md sm:p-5 p-5 shadow-md flex flex-col gap-8 ">
+          <ul className="flex flex-col gap-8 rounded-md bg-white p-5 shadow-md sm:p-5 md:p-10 ">
             {/* Using map to multiple Ui forms for the given add more option */}
             {values.TermsData.map((item, index) => (
               <li
                 key={index}
-                className="flex gap-5 items-center md:flex-row flex-col sm:flex-col sm:w-full"
+                className="flex flex-col items-center gap-5 sm:w-full sm:flex-col md:flex-row"
               >
-                <span className="px-4 py-2 text-xl font-bold rounded-full bg-red-200 translate-y-[30%]">
+                <span className="translate-y-[30%] rounded-full bg-red-200 px-4 py-2 text-xl font-bold">
                   {index + 1}
                 </span>
-                <div className="flex items-end flex-wrap gap-5 md:flex-row sm:flex-col flex-col w-full">
+                <div className="flex w-full flex-col flex-wrap items-end gap-14 sm:flex-col sm:gap-5 md:flex-row">
                   {/* this is child component from where UI is fetched */}
                   <InputFieldCreation
                     name={`TermsData.${index}.term`}
@@ -49,7 +49,7 @@ const TermCreation = ({ values, setFieldValue }) => {
                           <>
                             <label
                               htmlFor={`cardImage-${index}`}
-                              className="flex items-center cursor-pointer"
+                              className="flex cursor-pointer items-center"
                             >
                               <AiFillFileImage className="text-blue-700" />
                               Upload Image
@@ -81,7 +81,7 @@ const TermCreation = ({ values, setFieldValue }) => {
                     <div className="flex items-center gap-5">
                       <div>
                         <img
-                          className="w-20 aspect-square rounded-md"
+                          className="aspect-square w-20 rounded-md"
                           src={item.image}
                           alt="term_image"
                           loading="lazy"
@@ -105,9 +105,9 @@ const TermCreation = ({ values, setFieldValue }) => {
                             text={
                               <label
                                 htmlFor={`cardImage-${index}`}
-                                className="flex items-center cursor-pointer"
+                                className="flex cursor-pointer items-center"
                               >
-                                <BiEdit className="text-blue-700 text-3xl cursor-pointer" />
+                                <BiEdit className="cursor-pointer text-3xl text-blue-700" />
                                 <input
                                   type="file"
                                   id={`cardImage-${index}`}
@@ -151,7 +151,7 @@ const TermCreation = ({ values, setFieldValue }) => {
             <li className="text-center md:text-left">
               <Button
                 type="button"
-                fn={() => fieldArrayProps.push({term:"",definition:""})}
+                fn={() => fieldArrayProps.push({ term: "", definition: "" })}
                 btnclass={"font-semibold text-blue-700 mt-5"}
                 text={"+ Add more"}
               />

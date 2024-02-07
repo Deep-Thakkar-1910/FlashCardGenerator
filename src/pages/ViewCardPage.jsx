@@ -1,5 +1,6 @@
 import { useParams } from "react-router-dom";
-import ViewCard from "../components/ViewCard/ViewCard";
+import ViewCardHeading from "../components/ViewCard/ViewCardHeading";
+import ViewCardTerms from "../components/ViewCard/ViewCardTerms";
 
 const FlashCardPage = () => {
   const { details: flashCardID } = useParams();
@@ -7,14 +8,14 @@ const FlashCardPage = () => {
   const viewCard = viewCardDetails?.find(
     (viewCard) => viewCard.id === flashCardID,
   ); // to find the card and display it's details from localStorage
+
   return (
-    <div className="px-5 md:px-10 lg:px-32">
-      <ViewCard
-        cardID={flashCardID}
+    <div className="w-full px-5 md:px-10 lg:px-32">
+      <ViewCardHeading
         viewCardHeading={viewCard.GroupData.group}
         viewCardDescription={viewCard.GroupData.groupdesc}
-        viewCardTerms={viewCard.TermsData}
       />
+      <ViewCardTerms viewCardTerms={viewCard.TermsData} />
     </div>
   );
 };

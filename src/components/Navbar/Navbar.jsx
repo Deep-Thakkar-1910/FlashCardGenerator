@@ -15,7 +15,7 @@ const Navbar = () => {
     return classname;
   };
   return (
-    <div className="fixed top-0 z-50 w-full">
+    <div className="fixed top-0 z-40 w-full">
       <div className=" flex items-center justify-start bg-white px-10 py-3 shadow-md">
         <div className="rounded-sm bg-[#cb1313]  p-1 text-2xl font-bold text-white">
           AL
