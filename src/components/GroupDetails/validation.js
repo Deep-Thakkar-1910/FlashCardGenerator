@@ -6,6 +6,9 @@ export const validationschema = Yup.object().shape({
       .min(2, "Group name should be minimum 2 Characters")
       .max(20, "Group name should be maximum 20 Characters")
       .required("Required"),
+    description: Yup.string()
+      .min(20, "Group description should be minimum 20 characters")
+      .max(255, "Group Description should be minimun 200 charachters"),
   }),
 
   TermsData: Yup.array(
@@ -19,6 +22,6 @@ export const validationschema = Yup.object().shape({
         .min(100, "Definition should be minimum 100 characters")
         .max(1000, "Definition should be maximum 1000 characters")
         .required("Required"),
-    })
+    }),
   ),
 });

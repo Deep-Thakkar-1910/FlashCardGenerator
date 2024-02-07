@@ -19,21 +19,21 @@ const initialValues = {
 const validationSchema = Yup.object().shape({
   GroupData: Yup.object().shape({
     group: Yup.string()
-      .min(2, "Minimum char len is 2")
-      .max(20, "You have reached the max len")
+      .min(2, "Group name should be minimum 2 Characters")
+      .max(20, "Group name should be maximum 20 Characters")
       .required("Required"),
   }),
 
   TermsData: Yup.array(
     Yup.object().shape({
       term: Yup.string()
-        .min(10, "Minimum char len is 10")
-        .max(200, "You have reached the max len")
+        .min(10, "Term name should be minimum 10 characters")
+        .max(200, "Term name should be maximum 200 characters")
         .required("Required"),
 
       definition: Yup.string()
-        .min(100, "Minimum char len is 100")
-        .max(2000, "You have reached the max len")
+        .min(100, "Definition should be minimum 100 characters")
+        .max(2000, "Definition can be maxium 1000 characters")
         .required("Required"),
     }),
   ),
@@ -42,13 +42,13 @@ const validationSchema = Yup.object().shape({
 function GroupDetails() {
   const dispatch = useDispatch();
   const onSubmit = (values, { resetForm }) => {
+    // submit function to update local storage and redux store to show live updates for newly created flash cards
     values.id = shortid.generate();
-    console.log("Form data", values);
     const allFlashCardData =
-      JSON.parse(localStorage.getItem("allFlashCardData")) || [];
+      JSON.parse(localStorage.getItem("allFlashCardData")) || []; // to get previous flash card data from local storage
     const finalValue = [...allFlashCardData, values];
-    localStorage.setItem("allFlashCardData", JSON.stringify(finalValue));
-    dispatch(updateFlashCards({ ...values }));
+    localStorage.setItem("allFlashCardData", JSON.stringify(finalValue)); // to set previous flash card data and aggregate it with newly created flash card data
+    dispatch(updateFlashCards({ ...values })); // to update the redux store
     resetForm();
   };
   return (

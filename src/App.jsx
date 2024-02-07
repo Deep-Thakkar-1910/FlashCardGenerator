@@ -5,6 +5,7 @@ import MyFlashCards from "./pages/MyFlashCards";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { populateFlashCards } from "./Redux/Slices/AllFlashcards";
+import ViewCardPage from "./pages/ViewCardPage";
 const App = () => {
   const dispatch = useDispatch();
   const allFlashCardData = JSON.parse(localStorage.getItem("allFlashCardData")); // to get the flash card data from localStorage
@@ -16,11 +17,11 @@ const App = () => {
   return (
     <div className="App flex min-h-screen  w-full flex-col bg-[#f5f2ed] font-openSans">
       <Navbar />
-      <main style={{ marginTop: "20rem" }} className="grid place-items-center">
+      <main style={{ marginTop: "20rem" }} className="grid place-items-start">
         <Routes>
           <Route path="/" element={<Hompage />} />
           <Route path="/myflashcard" element={<MyFlashCards />} />
-          <Route path="/:details" />
+          <Route path="/:details" element={<ViewCardPage />} />
         </Routes>
       </main>
     </div>
