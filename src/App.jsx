@@ -8,7 +8,8 @@ import { populateFlashCards } from "./Redux/Slices/AllFlashcards";
 import ViewCardPage from "./pages/ViewCardPage";
 const App = () => {
   const dispatch = useDispatch();
-  const allFlashCardData = JSON.parse(localStorage.getItem("allFlashCardData")); // to get the flash card data from localStorage
+  const allFlashCardData =
+    JSON.parse(localStorage.getItem("allFlashCardData")) || []; // to get the flash card data from localStorage
   useEffect(() => {
     allFlashCardData && dispatch(populateFlashCards(allFlashCardData));
     // to update the flash card data in redux store every time a change in localStorage is made for the flash card data

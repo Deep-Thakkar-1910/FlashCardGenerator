@@ -12,10 +12,10 @@ const FlashCardPage = () => {
   return (
     <div className="w-full px-5 md:px-10 lg:px-32">
       <ViewCardHeading
-        viewCardHeading={viewCard.GroupData.group}
-        viewCardDescription={viewCard.GroupData.groupdesc}
+        viewCardHeading={viewCard?.GroupData.group}
+        viewCardDescription={viewCard?.GroupData.groupdesc}
       />
-      <ViewCardTerms viewCardTerms={viewCard.TermsData} />
+      <ViewCardTerms viewCardTerms={viewCard?.TermsData} />
     </div>
   );
 };

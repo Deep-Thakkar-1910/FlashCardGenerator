@@ -18,11 +18,11 @@ const MyFlashCards = () => {
             return (
               <FlashcardComponent
                 key={flashCard.id}
-                groupTopic={flashCard.GroupData.group}
-                groupDesc={flashCard.GroupData.groupdesc}
-                groupImage={flashCard.GroupData.grpimage}
-                termsData={flashCard.TermsData}
-                id={flashCard.id}
+                groupTopic={flashCard?.GroupData.group}
+                groupDesc={flashCard?.GroupData.groupdesc}
+                groupImage={flashCard?.GroupData.grpimage}
+                termsData={flashCard?.TermsData}
+                id={flashCard?.id}
               />
             );
           })
