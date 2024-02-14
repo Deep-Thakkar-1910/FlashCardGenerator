@@ -10,8 +10,8 @@ const ImageModal = ({ setIsModalOpen, image, term, isModalOpen }) => {
       }
       onClick={() => setIsModalOpen(false)}
     >
-      <div className="absolute left-1/2 top-1/2 z-50 h-1/2  w-1/2 translate-x-[-50%] translate-y-[-45%]">
-        <img src={image} alt={term} className="h-full w-full" />
+      <div className="absolute left-1/2 top-1/2 z-50 hidden h-1/2  w-1/2 translate-x-[-52%] translate-y-[-20%] lg:block">
+        <img src={image} alt={term} className="h-full w-full " />
         <IoCloseSharp
           className="absolute right-[-2rem] top-[-3rem] cursor-pointer fill-black text-2xl"
           onClick={() => setIsModalOpen(false)}
