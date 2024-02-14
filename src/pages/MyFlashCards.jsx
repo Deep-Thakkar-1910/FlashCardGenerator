@@ -8,7 +8,7 @@ const MyFlashCards = () => {
     <div
       className={
         flashcards.length > 0
-          ? "mb-10 mt-[5rem] grid grid-cols-1 place-items-center gap-2 place-self-center px-5 md:gap-10 md:px-10 lg:grid-cols-2 lg:gap-14 lg:px-32 xl:grid-cols-3 xl:gap-x-10 xl:gap-y-10"
+          ? "mb-10 mt-[5rem] grid grid-cols-1 place-items-center gap-2 place-self-center px-5 md:gap-10 md:px-10 lg:grid-cols-2 lg:gap-14 lg:px-32 xl:grid-cols-3 xl:gap-x-48 xl:gap-y-10"
           : "mb-10 mt-[5rem] grid grid-cols-1 place-items-center gap-2 place-self-center px-5 md:gap-10 md:px-10 lg:grid-cols-1 lg:gap-14 lg:px-32 xl:grid-cols-1 xl:gap-x-10 xl:gap-y-10"
       }
     >
