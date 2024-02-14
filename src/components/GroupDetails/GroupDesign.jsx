@@ -177,7 +177,7 @@ function GroupDetails() {
     >
       {({ values, setFieldValue }) => (
         <Form className="">
-          <section className="mb-10 flex flex-col gap-10">
+          <section className="mb-10 mt-[5rem] flex flex-col gap-10">
             {toast && (
               <ToastComponent
                 fn={() => setToast(false)}
