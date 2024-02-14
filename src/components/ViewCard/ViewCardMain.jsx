@@ -1,33 +1,56 @@
 /* eslint-disable react/prop-types */
+import { useState } from "react";
 import { FaGreaterThan } from "react-icons/fa";
 import { FaLessThan } from "react-icons/fa";
+import ImageModal from "../ImageModal/ImageModal";
 const ViewCardMain = ({
   activeIndex,
   setActiveIndex,
   viewCardTerms,
   forwardedRef,
 }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div
-      className="relative mb-10 flex h-fit min-h-[10rem] w-full flex-col gap-14 rounded-md bg-white px-5 py-3 shadow-md lg:min-h-[30rem] lg:w-4/6 lg:flex-row lg:items-center lg:justify-between xl:w-9/12"
+      className={
+        viewCardTerms[activeIndex].image // if there is no image then the full container is taken by text elements
+          ? "relative mb-10 flex h-fit min-h-[10rem] w-full flex-col rounded-md bg-white px-5 py-3 shadow-md lg:min-h-[30rem] lg:w-9/12 lg:flex-row lg:items-center lg:justify-around"
+          : "relative mb-10 flex h-fit min-h-[10rem] w-full flex-col rounded-md bg-white px-5 py-3 shadow-md lg:min-h-[30rem] lg:w-9/12 lg:flex-row lg:items-center lg:justify-center"
+      }
       ref={forwardedRef}
     >
+      {isModalOpen && (
+        <ImageModal
+          setIsModalOpen={setIsModalOpen}
+          term={viewCardTerms[activeIndex].term}
+          image={viewCardTerms[activeIndex].image}
+          isModalOpen={isModalOpen}
+        />
+      )}
       <img
+        onClick={() => setIsModalOpen(true)}
         src={
           viewCardTerms[activeIndex].image && viewCardTerms[activeIndex].image
         }
         alt=""
         className={
           (viewCardTerms[activeIndex].image &&
-            "mb-4  w-full rounded-md object-fill lg:mb-0  lg:h-[12rem] lg:w-[12rem] xl:h-[15rem] xl:w-[20rem]") ||
+            "mb-4  w-full cursor-zoom-in rounded-md object-fill  lg:mb-0 lg:w-1/3") ||
           "hidden"
         }
       />
-      <div className="flex flex-col gap-10">
+      <div
+        className={
+          viewCardTerms[activeIndex].image
+            ? "flex flex-col gap-10 lg:w-1/3"
+            : "flex flex-col gap-10 p-4 lg:w-full"
+        }
+      >
         <h2 className="text-xl font-bold first-letter:uppercase">
           {viewCardTerms[activeIndex].term}
         </h2>
-        <p className="text-md text-gray-600">
+        <p className="text-sm text-gray-600">
           {viewCardTerms[activeIndex].definition}
         </p>
       </div>
@@ -41,6 +64,7 @@ const ViewCardMain = ({
           }
           onClick={() => {
             if (activeIndex !== 0) {
+              // to move towards the previous page of terms
               setActiveIndex(activeIndex - 1);
             }
           }}
@@ -56,6 +80,7 @@ const ViewCardMain = ({
           }
           onClick={() => {
             if (activeIndex !== viewCardTerms.length - 1) {
+              // to move towards the forward page of terms
               setActiveIndex(activeIndex + 1);
             }
           }}
