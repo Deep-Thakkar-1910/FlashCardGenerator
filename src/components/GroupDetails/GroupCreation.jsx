@@ -8,7 +8,7 @@ const GroupCreation = ({ values, setFieldValue }) => {
   return (
     <div className="rounded-md bg-white p-5 shadow-md sm:p-5 md:p-10">
       <div
-        className={`mb-5 flex flex-col flex-wrap items-end gap-14 sm:flex-row sm:gap-5`}
+        className={`mb-5 flex flex-col flex-wrap items-end gap-14 sm:flex-row`}
       >
         {/* Enter group input */}
         <InputFieldCreation
@@ -30,7 +30,7 @@ const GroupCreation = ({ values, setFieldValue }) => {
               <>
                 <label
                   htmlFor="grpimage"
-                  className="flex cursor-pointer items-center gap-1"
+                  className="flex cursor-pointer items-center gap-2"
                 >
                   <AiFillFileImage className="text-blue-700" />
                   {values.GroupData.grpimage ? "Change" : "Upload"} Image
@@ -79,7 +79,7 @@ const GroupCreation = ({ values, setFieldValue }) => {
         )}
       </div>
       {/* Group description */}
-      <div className="relative flex flex-col gap-2">
+      <div className="relative flex flex-col gap-2 sm:mt-14">
         <label htmlFor="groupdesc" className="font-semibold text-gray-500">
           Add Description
         </label>

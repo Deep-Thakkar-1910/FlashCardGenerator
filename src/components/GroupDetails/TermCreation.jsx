@@ -16,12 +16,12 @@ const TermCreation = ({ values, setFieldValue }) => {
             {values.TermsData.map((item, index) => (
               <li
                 key={index}
-                className="flex flex-col items-center gap-5 sm:w-full sm:flex-col md:flex-row"
+                className="flex flex-col items-center gap-14 sm:w-full sm:flex-col md:flex-row"
               >
                 <span className="translate-y-[30%] rounded-full bg-red-200 px-4 py-2 text-xl font-bold">
                   {index + 1}
                 </span>
-                <div className="flex w-full flex-col flex-wrap items-end gap-14 sm:flex-col sm:gap-5 md:flex-row">
+                <div className="flex w-full flex-col flex-wrap items-end gap-14 sm:flex-col  md:flex-row">
                   {/* this is child component from where UI is fetched */}
                   <InputFieldCreation
                     name={`TermsData.${index}.term`}

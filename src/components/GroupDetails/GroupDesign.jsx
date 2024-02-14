@@ -6,10 +6,10 @@ import * as Yup from "yup";
 import shortid from "shortid";
 import { useDispatch } from "react-redux";
 import { updateFlashCards } from "../../Redux/Slices/AllFlashcards";
-import ToastComponent from "../ToastComponent/ToastComponent";
 import { useState } from "react";
-
+import ToastComponent from "../ToastComponent/ToastComponent";
 //Data initialization for term
+
 const initialValues = {
   GroupData: { group: "", groupdesc: "", grpimage: null },
   TermsData: [{ term: "", definition: "", image: null }],
@@ -24,9 +24,6 @@ const validationSchema = Yup.object().shape({
       .min(2, "Group name should be minimum 2 Characters")
       .max(20, "Group name should be maximum 20 Characters")
       .required("Required"),
-    grpimage: Yup.mixed().test("fileSize", "Image size too large", (value) => {
-      return value && value.size <= 512 * 1024; // 512kb
-    }),
   }),
 
   TermsData: Yup.array(
@@ -40,10 +37,6 @@ const validationSchema = Yup.object().shape({
         .min(100, "Definition should be minimum 100 characters")
         .max(2000, "Definition can be maxium 1000 characters")
         .required("Required"),
-
-      image: Yup.mixed().test("fileSize", "Image size too large", (value) => {
-        return value && value.size <= 512 * 1024; // 512kb
-      }),
     }),
   ),
 });
@@ -57,8 +50,7 @@ function GroupDetails() {
     // After 2 seconds, set the toast variable to false to hide the toast message
     setTimeout(() => {
       setToast(false);
-    }, 2000);
-
+    }, 3500);
     // submit function to update local storage and redux store to show live updates for newly created flash cards
     values.id = shortid.generate();
     const allFlashCardData =
@@ -91,7 +83,6 @@ function GroupDetails() {
           {/* this is submit button to submit the entire term form data  */}
           <div className="mx-auto text-center">
             {/* button for submiting the flashcard */}
-
             <Button
               data-testid="submit-form"
               type="submit"
