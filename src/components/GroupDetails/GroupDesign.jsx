@@ -35,7 +35,7 @@ const validationSchema = Yup.object().shape({
 
       definition: Yup.string()
         .min(100, "Definition should be minimum 100 characters")
-        .max(2000, "Definition can be maxium 1000 characters")
+        .max(700, "Definition can be maxium 700 characters")
         .required("Required"),
     }),
   ),
