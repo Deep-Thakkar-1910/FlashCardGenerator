@@ -15,7 +15,9 @@ const FlashcardComponent = ({
         className="absolute left-1/2 top-0 aspect-square h-14 w-14  translate-x-[-50%] translate-y-[-50%] rounded-full object-cover "
       />
 
-      <h1 className="m-4 text-center font-black">{groupTopic}</h1>
+      <h1 className="m-4 text-center font-black first-letter:uppercase">
+        {groupTopic}
+      </h1>
 
       <p className="place-self-center">
         {groupDesc.length > 78 ? `${groupDesc.slice(0, 78)} ...` : groupDesc}

@@ -20,7 +20,7 @@ const Navbar = () => {
         <div className="rounded-sm bg-[#cb1313]  p-1 text-2xl font-bold text-white">
           AL
         </div>
-        <div className="text-2xl">maBetter</div>
+        <div className="text-2xl font-bold">maBetter</div>
       </div>
       <div className="bg-[#f5f2ed] px-5 pb-4 pt-10 md:px-20 lg:px-32">
         <h1 className="mb-7 text-2xl font-bold xl:text-3xl">
