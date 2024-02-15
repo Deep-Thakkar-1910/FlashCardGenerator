@@ -38,7 +38,7 @@ const FlashcardComponent = ({
         /*  if the paragraph is very long and doesn't contain spaces or line breaks then it is diplayed 
           with line breaks else it's displayed normally to avoid random paragraphs spoiling the responsivenes */
         doesLineBreakOrSpacesExist !== -1 ? (
-          <p className="max-w-full place-self-center">
+          <p className="max-w-full place-self-center overflow-hidden">
             {groupDesc.length > 78
               ? `${groupDesc.slice(0, 78)} ...`
               : groupDesc}
