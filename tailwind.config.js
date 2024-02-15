@@ -6,6 +6,9 @@ export default {
     fontFamily: {
       openSans: ["Open Sans", "sans-serif"],
     },
+    fontSize: {
+      clamp: "clamp(8px,1vw,0.875rem)",
+    },
   },
   plugins: [],
 };

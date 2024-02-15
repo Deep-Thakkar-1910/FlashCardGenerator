@@ -5,7 +5,23 @@ import Button from "./Button";
 import { AiFillFileImage } from "react-icons/ai";
 import { BiEdit } from "react-icons/bi";
 import { TbTrashX } from "react-icons/tb";
+import Resizer from "react-image-file-resizer";
 const TermCreation = ({ values, setFieldValue }) => {
+  const resizeFile = (file) =>
+    new Promise((resolve) => {
+      Resizer.imageFileResizer(
+        file,
+        300,
+        300,
+        "PNG",
+        50,
+        0,
+        (uri) => {
+          resolve(uri);
+        },
+        "blob",
+      );
+    });
   return (
     <div>
       <FieldArray
@@ -113,10 +129,11 @@ const TermCreation = ({ values, setFieldValue }) => {
                                   id={`cardImage-${index}`}
                                   hidden
                                   accept="image/*"
-                                  onChange={(e) => {
+                                  onChange={async (e) => {
                                     const file = e.target.files[0];
                                     const reader = new FileReader();
-                                    reader.readAsDataURL(file);
+                                    const resizedImage = await resizeFile(file);
+                                    reader.readAsDataURL(resizedImage);
                                     reader.onload = () => {
                                       const imageUrl = reader.result;
                                       fieldArrayProps.replace(index, {

@@ -10,13 +10,28 @@ const ViewCardMain = ({
   forwardedRef,
 }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const doesLineBreakOrSpacesExist =
+    viewCardTerms[activeIndex].definition.search(/[\s\n]/gi);
 
+  const lineBreakFunction = (string) => {
+    let newString = "";
+    //this string will be returned with linebreaks after each 50 characters
+    for (const [index, char] of string.split("").entries()) {
+      // logic to implement linebreaks after each 50 characters
+      if (index % 10 === 0 && index !== 0) {
+        newString += ` ${char}`;
+      } else {
+        newString += char;
+      }
+    }
+    return newString;
+  };
   return (
     <div
       className={
         viewCardTerms[activeIndex].image // if there is no image then the full container is taken by text elements
-          ? "relative mb-10 flex h-fit min-h-[10rem] w-full flex-col rounded-md bg-white px-5 py-3 shadow-md lg:min-h-[30rem] lg:w-9/12 lg:flex-row lg:items-center lg:justify-around"
-          : "relative mb-10 flex h-fit min-h-[10rem] w-full flex-col rounded-md bg-white px-5 py-3 shadow-md lg:min-h-[30rem] lg:w-9/12 lg:flex-row lg:items-center lg:justify-center"
+          ? "relative mb-10 flex h-fit min-h-[10rem] w-full flex-shrink flex-col rounded-md bg-white px-5 py-3 shadow-md lg:min-h-[30rem] lg:w-9/12 lg:flex-row lg:items-center lg:justify-around"
+          : "relative mb-10 flex h-fit min-h-[10rem] w-full flex-shrink flex-col rounded-md bg-white px-5 py-3 shadow-md lg:min-h-[30rem] lg:w-9/12 lg:flex-row lg:items-center lg:justify-center"
       }
       ref={forwardedRef}
     >
@@ -50,9 +65,15 @@ const ViewCardMain = ({
         <h2 className="text-xl font-bold first-letter:uppercase">
           {viewCardTerms[activeIndex].term}
         </h2>
-        <p className="text-sm text-gray-600">
-          {viewCardTerms[activeIndex].definition}
-        </p>
+        {doesLineBreakOrSpacesExist !== -1 ? (
+          <p className=" text-sm text-gray-600 ">
+            {viewCardTerms[activeIndex].definition}
+          </p>
+        ) : (
+          <div className="text-sm text-gray-600">
+            <p>{lineBreakFunction(viewCardTerms[activeIndex].definition)}</p>
+          </div>
+        )}
       </div>
       {/* this div is for implenting pagination*/}
       <div className="absolute bottom-[-3rem] left-1/2 flex translate-x-[-50%] items-center gap-2">

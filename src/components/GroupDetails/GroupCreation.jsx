@@ -3,8 +3,24 @@ import InputFieldCreation from "./InputFieldCreation";
 import { Field } from "formik";
 import { AiFillFileImage } from "react-icons/ai";
 import Button from "./Button";
+import Resizer from "react-image-file-resizer";
 
 const GroupCreation = ({ values, setFieldValue }) => {
+  const resizeFile = (file) =>
+    new Promise((resolve) => {
+      Resizer.imageFileResizer(
+        file,
+        300,
+        300,
+        "PNG",
+        50,
+        0,
+        (uri) => {
+          resolve(uri);
+        },
+        "blob",
+      );
+    });
   return (
     <div className="rounded-md bg-white p-5 shadow-md sm:p-5 md:p-10">
       <div
@@ -41,11 +57,11 @@ const GroupCreation = ({ values, setFieldValue }) => {
                     hidden
                     value=""
                     accept="image/*"
-                    onChange={(e) => {
+                    onChange={async (e) => {
                       const file = e.target.files[0];
+                      const resizedImage = await resizeFile(file);
                       const reader = new FileReader();
-                      reader.readAsDataURL(file);
-
+                      reader.readAsDataURL(resizedImage);
                       reader.onload = () => {
                         setFieldValue("GroupData.grpimage", reader.result);
                       };
