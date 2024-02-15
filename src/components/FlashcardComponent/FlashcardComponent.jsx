@@ -1,5 +1,8 @@
 /* eslint-disable react/prop-types */
 import { Link } from "react-router-dom";
+import { TbTrashX } from "react-icons/tb";
+import { useDispatch } from "react-redux";
+import { deleteFlashCard } from "../../Redux/Slices/AllFlashcards";
 const FlashcardComponent = ({
   groupTopic,
   groupDesc,
@@ -7,8 +10,8 @@ const FlashcardComponent = ({
   termsData,
   id,
 }) => {
+  const dispatch = useDispatch();
   const doesLineBreakOrSpacesExist = groupDesc.search(/[\s\n]/gi);
-
   const lineBreakFunction = (string) => {
     let newString = "";
     //this string will be returned with linebreaks after each 50 characters
@@ -59,6 +62,24 @@ const FlashcardComponent = ({
           View Cards
         </button>
       </Link>
+      <TbTrashX
+        size={"1.5rem"}
+        className="absolute right-2 top-4 cursor-pointer hover:text-blue-700"
+        onClick={() => {
+          // to implement delete flashcard functionality
+          const allFlashcards = JSON.parse(
+            localStorage.getItem("allFlashCardData"),
+          );
+          const deletedFlashCardData = allFlashcards.filter(
+            (flashCard) => flashCard.id !== id,
+          );
+          localStorage.setItem(
+            "allFlashCardData",
+            JSON.stringify(deletedFlashCardData),
+          );
+          dispatch(deleteFlashCard(id));
+        }}
+      />
     </div>
   );
 };

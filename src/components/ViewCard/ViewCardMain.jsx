@@ -15,9 +15,9 @@ const ViewCardMain = ({
 
   const lineBreakFunction = (string) => {
     let newString = "";
-    //this string will be returned with linebreaks after each 50 characters
+    //this string will be returned with linebreaks after each 10 characters
     for (const [index, char] of string.split("").entries()) {
-      // logic to implement linebreaks after each 50 characters
+      // logic to implement linebreaks after each 10 characters
       if (index % 10 === 0 && index !== 0) {
         newString += ` ${char}`;
       } else {
@@ -35,16 +35,22 @@ const ViewCardMain = ({
       }
       ref={forwardedRef}
     >
-      {isModalOpen && (
-        <ImageModal
-          setIsModalOpen={setIsModalOpen}
-          term={viewCardTerms[activeIndex].term}
-          image={viewCardTerms[activeIndex].image}
-          isModalOpen={isModalOpen}
-        />
-      )}
+      {
+        // to show the zoomed image on large devices
+        isModalOpen && (
+          <ImageModal
+            setIsModalOpen={setIsModalOpen}
+            term={viewCardTerms[activeIndex].term}
+            image={viewCardTerms[activeIndex].image}
+            isModalOpen={isModalOpen}
+          />
+        )
+      }
       <img
-        onClick={() => setIsModalOpen(true)}
+        onClick={
+          // to zoom in pictures on large devices where pictures appear small
+          () => setIsModalOpen(true)
+        }
         src={
           viewCardTerms[activeIndex].image && viewCardTerms[activeIndex].image
         }

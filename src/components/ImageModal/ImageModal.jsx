@@ -13,7 +13,8 @@ const ImageModal = ({ setIsModalOpen, image, term, isModalOpen }) => {
       <div className="absolute left-1/2 top-1/2 z-50 hidden h-1/2  w-1/2 translate-x-[-52%] translate-y-[-20%] lg:block">
         <img src={image} alt={term} className="h-full w-full " />
         <IoCloseSharp
-          className="absolute right-[-2rem] top-[-3rem] cursor-pointer fill-black text-2xl"
+          className="text-2xl absolute right-[-2rem] top-[-3rem] cursor-pointer fill-black"
+          size={"2rem"}
           onClick={() => setIsModalOpen(false)}
         />
       </div>
