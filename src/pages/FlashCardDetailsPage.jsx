@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import ViewCardHeading from "../components/ViewCard/ViewCardHeading";
 import ViewCardTerms from "../components/ViewCard/ViewCardTerms";
 
-const FlashCardPage = () => {
+const FlashCardDetailsPage = () => {
   const { details: flashCardID } = useParams();
   const viewCardDetails = JSON.parse(localStorage.getItem("allFlashCardData"));
   const viewCard = viewCardDetails?.find(
@@ -20,4 +20,4 @@ const FlashCardPage = () => {
   );
 };
 
-export default FlashCardPage;
+export default FlashCardDetailsPage;

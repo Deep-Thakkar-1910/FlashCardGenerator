@@ -1,11 +1,11 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
-import Hompage from "./pages/Hompage";
-import MyFlashCards from "./pages/MyFlashCards";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { populateFlashCards } from "./Redux/Slices/AllFlashcards";
-import ViewCardPage from "./pages/ViewCardPage";
+import CreateFlashCardPage from "./pages/CreateFlashCardsPage";
+import MyFlashCardsPage from "./pages/MyFLashCardsPage";
+import FlashCardDetailsPage from "./pages/FlashCardDetailsPage";
 const App = () => {
   const dispatch = useDispatch();
   const allFlashCardData = JSON.parse(localStorage.getItem("allFlashCardData")); // to get the flash card data from localStorage
@@ -22,9 +22,9 @@ const App = () => {
         className="grid place-items-start overflow-scroll"
       >
         <Routes>
-          <Route path="/" element={<Hompage />} />
-          <Route path="/myflashcard" element={<MyFlashCards />} />
-          <Route path="/:details" element={<ViewCardPage />} />
+          <Route path="/" element={<CreateFlashCardPage />} />
+          <Route path="/myflashcard" element={<MyFlashCardsPage />} />
+          <Route path="/:details" element={<FlashCardDetailsPage />} />
         </Routes>
       </main>
     </div>

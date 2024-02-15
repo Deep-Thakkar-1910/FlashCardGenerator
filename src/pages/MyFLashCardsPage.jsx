@@ -1,7 +1,7 @@
 import { useSelector } from "react-redux";
 import FlashcardComponent from "../components/FlashcardComponent/FlashcardComponent";
 import { Link } from "react-router-dom";
-const MyFlashCards = () => {
+const MyFlashCardsPage = () => {
   const flashcards = useSelector((state) => state.allFlashCards);
   return (
     // the div below has condtional classnames for centering the no flash cards ui elements
@@ -29,10 +29,10 @@ const MyFlashCards = () => {
         ) : (
           // when user has no flashcards created yet
           <>
-            <h1 className="text-md place-self-center font-bold sm:text-xl lg:text-2xl">
+            <h1 className="text-md sm:text-xl lg:text-2xl place-self-center font-bold">
               You Do Not Have Any Flash Cards Yet
             </h1>
-            <button className="mt-10 place-self-center rounded-md bg-red-600 p-2 text-xl font-semibold text-white">
+            <button className="text-xl mt-10 place-self-center rounded-md bg-red-600 p-2 font-semibold text-white">
               <Link to={"/"}>Create a new one?</Link>
             </button>
           </>
@@ -42,4 +42,4 @@ const MyFlashCards = () => {
   );
 };
 
-export default MyFlashCards;
+export default MyFlashCardsPage;
