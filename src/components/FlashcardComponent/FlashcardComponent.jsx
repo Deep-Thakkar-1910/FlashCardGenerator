@@ -7,6 +7,21 @@ const FlashcardComponent = ({
   termsData,
   id,
 }) => {
+  const doesLineBreakOrSpacesExist = groupDesc.search(/[\s\n]/gi);
+
+  const lineBreakFunction = (string) => {
+    let newString = "";
+    //this string will be returned with linebreaks after each 50 characters
+    for (const [index, char] of string.split("").entries()) {
+      // logic to implement linebreaks after each 50 characters
+      if (index % 10 === 0 && index !== 0) {
+        newString += ` ${char}`;
+      } else {
+        newString += char;
+      }
+    }
+    return newString;
+  };
   return (
     <div className="relative  z-0 mx-auto my-10 flex h-5/6 w-full min-w-64 flex-col justify-between rounded-md border border-gray-300 bg-white p-5 pt-8 shadow-md sm:mx-0 sm:w-5/6 sm:min-w-96 lg:w-11/12">
       <img
@@ -19,14 +34,28 @@ const FlashcardComponent = ({
         {groupTopic}
       </h1>
 
-      <p className="place-self-center">
-        {groupDesc.length > 78 ? `${groupDesc.slice(0, 78)} ...` : groupDesc}
-      </p>
+      {
+        /*  if the paragraph is very long and doesn't contain spaces or line breaks then it is diplayed 
+          with line breaks else it's displayed normally to avoid random paragraphs spoiling the responsivenes */
+        doesLineBreakOrSpacesExist !== -1 ? (
+          <p className="max-w-full place-self-center overflow-hidden ">
+            {groupDesc.length > 78
+              ? `${groupDesc.slice(0, 78)} ...`
+              : groupDesc}
+          </p>
+        ) : (
+          <p>
+            {lineBreakFunction(groupDesc).length > 78
+              ? `${lineBreakFunction(groupDesc.slice(0, 78))} ...`
+              : lineBreakFunction(groupDesc)}
+          </p>
+        )
+      }
 
       <p className="m-4 text-center font-semibold">{`${termsData.length} Cards`}</p>
 
       <Link to={`/${id}`}>
-        <button className=" w-full place-self-center rounded-md border-2 border-red-600 bg-transparent p-1 text-xl  font-bold text-red-500 transition-all  duration-300 ease-in-out  hover:bg-red-600 hover:text-white">
+        <button className=" text-xl w-full place-self-center rounded-md border-2 border-red-600 bg-transparent p-1  font-bold text-red-500 transition-all  duration-300 ease-in-out  hover:bg-red-600 hover:text-white">
           View Cards
         </button>
       </Link>
