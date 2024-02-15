@@ -19,7 +19,7 @@ const ViewCardHeading = ({ viewCardHeading, viewCardDescription }) => {
   };
 
   return (
-    <div className="mb-20 flex items-baseline gap-4 sm:ml-10 lg:ml-0">
+    <div className="mb-10 flex items-baseline gap-4 sm:ml-10 lg:ml-0">
       <Link to={"/myflashcard"}>
         <IoMdArrowRoundBack className="text-xl cursor-pointer text-gray-700" />
       </Link>

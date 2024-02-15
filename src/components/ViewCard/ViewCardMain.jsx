@@ -76,7 +76,7 @@ const ViewCardMain = ({
         )}
       </div>
       {/* this div is for implenting pagination*/}
-      <div className="absolute bottom-[-3rem] left-1/2 flex translate-x-[-50%] items-center gap-2">
+      <div className="absolute bottom-[-2.5rem] left-1/2 flex translate-x-[-50%] items-center gap-2">
         <FaLessThan
           className={
             activeIndex === 0
