@@ -34,7 +34,7 @@ const TermCreation = ({ values, setFieldValue }) => {
                 key={index}
                 className="flex flex-col items-center gap-14 sm:w-full sm:flex-col md:flex-row"
               >
-                <span className="translate-y-[30%] rounded-full bg-red-200 px-4 py-2 text-xl font-bold">
+                <span className="text-xl translate-y-[30%] rounded-full bg-red-200 px-4 py-2 font-bold">
                   {index + 1}
                 </span>
                 <div className="flex w-full flex-col flex-wrap items-end gap-14 sm:flex-col  md:flex-row">
@@ -67,17 +67,18 @@ const TermCreation = ({ values, setFieldValue }) => {
                               htmlFor={`cardImage-${index}`}
                               className="flex cursor-pointer items-center"
                             >
-                              <AiFillFileImage className="text-blue-700" />
+                              <AiFillFileImage className="text-blue-700 " />
                               Upload Image
                               <input
                                 type="file"
                                 id={`cardImage-${index}`}
                                 hidden
                                 accept="image/*"
-                                onChange={(e) => {
+                                onChange={async (e) => {
                                   const file = e.target.files[0];
+                                  const resizedImage = await resizeFile(file);
                                   const reader = new FileReader();
-                                  reader.readAsDataURL(file);
+                                  reader.readAsDataURL(resizedImage);
                                   reader.onload = () => {
                                     const imageUrl = reader.result;
                                     fieldArrayProps.replace(index, {
@@ -123,17 +124,19 @@ const TermCreation = ({ values, setFieldValue }) => {
                                 htmlFor={`cardImage-${index}`}
                                 className="flex cursor-pointer items-center"
                               >
-                                <BiEdit className="cursor-pointer text-3xl text-blue-700" />
+                                <BiEdit className="text-3xl cursor-pointer text-blue-700" />
                                 <input
                                   type="file"
                                   id={`cardImage-${index}`}
                                   hidden
                                   accept="image/*"
                                   onChange={async (e) => {
+                                    console.log("hello");
                                     const file = e.target.files[0];
                                     const reader = new FileReader();
                                     const resizedImage = await resizeFile(file);
                                     reader.readAsDataURL(resizedImage);
+
                                     reader.onload = () => {
                                       const imageUrl = reader.result;
                                       fieldArrayProps.replace(index, {
@@ -168,7 +171,9 @@ const TermCreation = ({ values, setFieldValue }) => {
             <li className="text-center md:text-left">
               <Button
                 type="button"
-                fn={() => fieldArrayProps.push({ term: "", definition: "" })}
+                fn={() =>
+                  fieldArrayProps.push({ term: "", definition: "", image: "" })
+                }
                 btnclass={"font-semibold text-blue-700 mt-5"}
                 text={"+ Add more"}
               />

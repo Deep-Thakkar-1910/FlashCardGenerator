@@ -24,6 +24,9 @@ const validationSchema = Yup.object().shape({
       .min(2, "Group name should be minimum 2 Characters")
       .max(20, "Group name should be maximum 20 Characters")
       .required("Required"),
+    groupdesc: Yup.string()
+      .min(20, "Group Description should be minimum 20 Characters")
+      .max(60, "Group Description should be maximum 60 Characters"),
   }),
 
   TermsData: Yup.array(

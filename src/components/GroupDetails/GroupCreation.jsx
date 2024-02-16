@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import InputFieldCreation from "./InputFieldCreation";
-import { Field } from "formik";
+import { ErrorMessage, Field } from "formik";
 import { AiFillFileImage } from "react-icons/ai";
 import Button from "./Button";
 import Resizer from "react-image-file-resizer";
@@ -105,8 +105,13 @@ const GroupCreation = ({ values, setFieldValue }) => {
           name={`GroupData.groupdesc`}
           id="groupdesc"
           maxLength="500"
-          placeholder="Write your description here ( max length is 500 Characters )"
-          className="h-36 resize-none rounded-md border-2 p-2 text-lg"
+          placeholder="Write your description here ( Max length is 60 Characters )"
+          className=" relative mb-16 h-36 resize-none rounded-md border-2 p-2 sm:mb-8 md:mb-4"
+        />
+        <ErrorMessage
+          name="GroupData.groupdesc"
+          component="span"
+          className="absolute bottom-[-1rem] left-0 text-red-600 sm:bottom-[-0.2rem] md:bottom-[-1rem] "
         />
       </div>
     </div>
