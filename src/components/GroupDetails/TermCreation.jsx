@@ -27,7 +27,7 @@ const TermCreation = ({ values, setFieldValue }) => {
       <FieldArray
         name="TermsData"
         render={(fieldArrayProps) => (
-          <ul className="flex flex-col gap-8 rounded-md bg-white p-5 shadow-md sm:p-5 md:p-10 ">
+          <ul className="flex flex-col  gap-8 rounded-md bg-white p-5 shadow-md sm:p-5 md:p-10 ">
             {/* Using map to multiple Ui forms for the given add more option */}
             {values.TermsData.map((item, index) => (
               <li
@@ -37,7 +37,7 @@ const TermCreation = ({ values, setFieldValue }) => {
                 <span className="text-xl translate-y-[30%] rounded-full bg-red-200 px-4 py-2 font-bold">
                   {index + 1}
                 </span>
-                <div className="flex w-full flex-col flex-wrap items-end gap-14 sm:flex-col  md:flex-row">
+                <div className="flex w-full flex-col flex-wrap items-start gap-14 sm:flex-col  md:flex-row">
                   {/* this is child component from where UI is fetched */}
                   <InputFieldCreation
                     name={`TermsData.${index}.term`}

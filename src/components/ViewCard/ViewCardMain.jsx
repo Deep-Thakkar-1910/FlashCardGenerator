@@ -3,12 +3,7 @@ import { useState } from "react";
 import { FaGreaterThan } from "react-icons/fa";
 import { FaLessThan } from "react-icons/fa";
 import ImageModal from "../ImageModal/ImageModal";
-const ViewCardMain = ({
-  activeIndex,
-  setActiveIndex,
-  viewCardTerms,
-  forwardedRef,
-}) => {
+const ViewCardMain = ({ activeIndex, setActiveIndex, viewCardTerms }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const doesLineBreakOrSpacesExist =
     viewCardTerms[activeIndex].definition.search(/[\s\n]/gi);
@@ -33,7 +28,6 @@ const ViewCardMain = ({
           ? "relative mb-10 flex h-fit min-h-[10rem] w-full flex-shrink flex-col rounded-md bg-white px-5 py-3 shadow-md lg:min-h-[30rem] lg:w-9/12 lg:flex-row lg:items-center lg:justify-around"
           : "relative mb-10 flex h-fit min-h-[10rem] w-full flex-shrink flex-col rounded-md bg-white px-5 py-3 shadow-md lg:min-h-[30rem] lg:w-9/12 lg:flex-row lg:items-center lg:justify-center"
       }
-      ref={forwardedRef}
     >
       {
         // to show the zoomed image on large devices
@@ -47,6 +41,7 @@ const ViewCardMain = ({
         )
       }
       <img
+        loading="lazy"
         onClick={
           // to zoom in pictures on large devices where pictures appear small
           () => setIsModalOpen(true)
@@ -68,7 +63,7 @@ const ViewCardMain = ({
             : "flex flex-col gap-10 p-4 lg:w-full"
         }
       >
-        <h2 className="text-xl font-bold first-letter:uppercase">
+        <h2 className="text-lg font-bold first-letter:uppercase">
           {viewCardTerms[activeIndex].term}
         </h2>
         {doesLineBreakOrSpacesExist !== -1 ? (
@@ -76,8 +71,10 @@ const ViewCardMain = ({
             {viewCardTerms[activeIndex].definition}
           </p>
         ) : (
-          <div className="text-sm text-gray-600">
-            <p>{lineBreakFunction(viewCardTerms[activeIndex].definition)}</p>
+          <div>
+            <p className="text-sm text-gray-600">
+              {lineBreakFunction(viewCardTerms[activeIndex].definition)}
+            </p>
           </div>
         )}
       </div>

@@ -24,7 +24,7 @@ const GroupCreation = ({ values, setFieldValue }) => {
   return (
     <div className="rounded-md bg-white p-5 shadow-md sm:p-5 md:p-10">
       <div
-        className={`mb-5 flex flex-col flex-wrap items-end gap-14 sm:flex-row`}
+        className={`mb-5 flex flex-col  flex-wrap items-start gap-14 sm:flex-row`}
       >
         {/* Enter group input */}
         <InputFieldCreation
@@ -40,7 +40,7 @@ const GroupCreation = ({ values, setFieldValue }) => {
           <Button
             type={"button"}
             btnclass={
-              "border-2 rounded-md min-w-max font-semibold text-lg px-6 py-2"
+              "border-2 rounded-md mb-2 min-w-max font-semibold text-lg px-6 py-2"
             }
             text={
               <>

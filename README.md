@@ -1,9 +1,9 @@
+# Flashcard Generator
+
 <h1 align="center">
   <br>
 
 ![logo](./public/flash-cards.png)
-
-Flashcard Generator
 
 </h1>
 
@@ -63,10 +63,6 @@ Flashcard Generator is built using the following technologies:
 - **Yup:** JavaScript schema validation library for form validation.
 - **React Icons:** Library for including popular icon sets as React components.
 
-## Feedback
-
-Feel free to send us feedback on [GitHub](https://github.com/Deep-Thakkar-1910/) or [file an issue](https://github.com/Deep-Thakkar-1910/FlashCardGenerator.git/issues/new). Feature requests are always welcome. If you wish to contribute, please take a quick look at the [guidelines](./CONTRIBUTING.md)!
-
 ## Contributors
 
 This project follows the [all-contributors](https://github.com/Deep-Thakkar-1910/FlashCardGenerator.git)
@@ -79,7 +75,7 @@ This project follows the [all-contributors](https://github.com/Deep-Thakkar-1910
 
 4. [Jugal Jakapure](https://github.com/juggu140896)
 
-## Build Process
+## Installation and Setup
 
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
 
@@ -96,7 +92,7 @@ $ npm i
 # Run the app
 $ npm run dev
 
-#click on the link that comes up in the terminal
+#Click on the link that comes up in the terminal
 
 ```
 
