@@ -3,14 +3,14 @@
 <h1 align="center">
   <br>
 
-![logo](./public/flash-cards.png)
+[![logo](./public/flash-cards.png)](https://abflashcardgenerator.netlify.app)
 
 </h1>
 
 Flashcard Generator is a web application that allows users to create, manage, and share custom flashcards. It provides an intuitive interface and a comprehensive set of features to enhance the learning process.
 
 <h2 align='center'>
-<a href='https://abflashcardgenerator.netlify.app' target="_blank">Demo</a>
+<a href='https://abflashcardgenerator.netlify.app' target="_blank">Click For Demo</a>
 </h2>
 
 <p align="center">  
@@ -24,7 +24,6 @@ Flashcard Generator is a web application that allows users to create, manage, an
 - [Introduction](#introduction)
 - [Features](#features)
 - [Tech Stack](#tech-stack)
-- [Feedback](#feedback)
 - [Contributors](#contributors)
 - [Build Process](#build-process)
 - [License](#license)
@@ -32,7 +31,7 @@ Flashcard Generator is a web application that allows users to create, manage, an
 
 ## Introduction
 
-Flashcard-generator is a powerful flashcard generator app designed to supercharge your learning process. With it's beginner friendly interface you can create and orgnize your flashcards very easily. Whether you're preparing for exams, learning new languages, or enhancing your knowledge in any subject, Flashcard-generator helps you retain information effectively and boost your learning potential.
+"Welcome to Flashcard-generator – your go-to tool for effortless learning! Designed with simplicity in mind, our app makes creating and organizing flashcards a breeze. Whether you're prepping for tests, mastering new languages, or expanding your knowledge, Flashcard-generator helps you remember information better and learn faster. Say hello to stress-free studying!"
 
 ## Features
 
@@ -43,7 +42,7 @@ A few of the things you can do with Flashcard-Generator:
 - **Group and Term Creation:** Organize your flashcards into groups and create multiple terms within each group for efficient management.
 - **Bulk Creation:** Save time by creating multiple flashcard terms simultaneously.
 - **Local Storage:** Access your flashcards even offline, thanks to browser local storage integration.
-- **Download, Print, and Share:** Export flashcards as files, print them for offline studying, or share them with others through various channels.
+- **Download, Print, and Share:** Export flashcards as files, print them for offline studying, or share them with others through a quick link.
 
 ## Additional Features Implemented
 
