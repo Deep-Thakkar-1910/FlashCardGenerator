@@ -24,7 +24,7 @@ const GroupCreation = ({ values, setFieldValue }) => {
   return (
     <div className="rounded-md bg-white p-5 shadow-md sm:p-5 md:p-10">
       <div
-        className={`mb-5 flex flex-col  flex-wrap items-start gap-14 sm:flex-row`}
+        className={`mb-5 flex flex-col  flex-wrap items-start gap-14 sm:flex-row lg:items-center`}
       >
         {/* Enter group input */}
         <InputFieldCreation
@@ -35,7 +35,7 @@ const GroupCreation = ({ values, setFieldValue }) => {
           placeholder={"Enter Group"}
         />
 
-        <div>
+        <div className="md:translate-y-1/2 lg:translate-y-1/4">
           {/* Button for uploading Group image */}
           <Button
             type={"button"}

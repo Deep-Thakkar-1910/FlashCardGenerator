@@ -34,10 +34,10 @@ const TermCreation = ({ values, setFieldValue }) => {
                 key={index}
                 className="flex flex-col items-center gap-14 sm:w-full sm:flex-col md:flex-row"
               >
-                <span className="text-xl translate-y-[30%] rounded-full bg-red-200 px-4 py-2 font-bold">
+                <span className="translate-y-[30%] rounded-full bg-red-200 px-4 py-2 text-xl font-bold">
                   {index + 1}
                 </span>
-                <div className="flex w-full flex-col flex-wrap items-start gap-14 sm:flex-col  md:flex-row">
+                <div className="flex w-full flex-col flex-wrap items-start  gap-14 sm:flex-col md:flex-row  lg:items-center">
                   {/* this is child component from where UI is fetched */}
                   <InputFieldCreation
                     name={`TermsData.${index}.term`}
@@ -55,7 +55,7 @@ const TermCreation = ({ values, setFieldValue }) => {
                     placeholder={"Enter the definition"}
                   />
                   {!item.image && (
-                    <div>
+                    <div className="lg:translate-y-1/4">
                       <Button
                         type={"button"}
                         btnclass={
@@ -124,7 +124,7 @@ const TermCreation = ({ values, setFieldValue }) => {
                                 htmlFor={`cardImage-${index}`}
                                 className="flex cursor-pointer items-center"
                               >
-                                <BiEdit className="text-3xl cursor-pointer text-blue-700" />
+                                <BiEdit className="cursor-pointer text-3xl text-blue-700" />
                                 <input
                                   type="file"
                                   id={`cardImage-${index}`}
