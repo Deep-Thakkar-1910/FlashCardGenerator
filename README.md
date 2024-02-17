@@ -92,7 +92,7 @@ $ npm i
 # Run the app
 $ npm run dev
 
-#click on the link that comes up in the terminal
+#Click on the link that comes up in the terminal
 
 ```
 
